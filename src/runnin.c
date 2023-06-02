@@ -6,7 +6,7 @@
 /*   By: sammeuss <sammeuss@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/30 20:19:32 by sammeuss          #+#    #+#             */
-/*   Updated: 2023/06/02 09:59:23 by sammeuss         ###   ########.fr       */
+/*   Updated: 2023/06/02 16:03:34 by sammeuss         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,6 +33,7 @@ void	main_hook(void *param)
 	int		y;
 
 	game = (t_game *)param;
+	game->game_on = true;
 	x = game->p->img->instances[0].x;
 	y = game->p->img->instances[0].y;
 	if (mlx_is_key_down(game->mlx, MLX_KEY_ESCAPE))
@@ -53,34 +54,46 @@ void	main_hook(void *param)
 
 void	collectibles_hook(void	*param)
 {
-	int		i;
-	int		u;
 	int		c_c;
+	int		p_x;
+	int		p_y;
 	t_game	*g;
 
-	i = -1;
-	u = -1;
-	c_c = 0;
 	g = (t_game *)param;
-	while (g->map->array[++i])
+	p_x = g->p->img->instances[0].x;
+	p_y = g->p->img->instances[0].y;
+	c_c = 0;
+	while (g->c[c_c])
 	{
-		while (g->map->array[i][++u])
+		if (check_hitbox_c(g, c_c, p_x, p_y) == 0)
 		{
-			if (g->p->img->instances[0].x == g->c[c_c]->img->instances[0].x
-				&& g->p->img->instances[0].y == g->c[c_c]->img->instances[0].y)
-				collect_c(g, &c_c);
+			mlx_delete_image(g->mlx, g->c[c_c]->img);
+			g->c[c_c]->is_collected = true;
+			g->p->count_c++;
 		}
-		printf("c_c = %d\n", c_c);
-		u = -1;
+		c_c++;
 	}
+	ft_exit(g, g->p->count_c);
 }
 
-void	collect_c(t_game	*g, int		*c_c)
+void	ft_exit(t_game	*g, int counter)
 {
-	if (g->c[*c_c]->is_collected == false)
+	int	p_x;
+	int	p_y;
+	int	nb_c;
+
+	nb_c = nb_ct(g->map->array);
+	p_x = g->p->img->instances[0].x;
+	p_y = g->p->img->instances[0].y;
+	if (g->game_on == true)
 	{
-		mlx_delete_image(g->mlx, g->c[*c_c]->img);
-		(*c_c)++;
-		g->c[*c_c]->is_collected = true;
+		if ((counter == nb_c)
+			&& (p_x < (g->e->x + TS))
+			&& ((p_x + g->p->width) > (g->e->x))
+			&& (p_y < (g->e->y + TS))
+			&& ((p_y + g->p->height) > (g->e->y)))
+		{
+			mlx_close_window(g->mlx);
+		}
 	}
 }

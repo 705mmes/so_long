@@ -6,7 +6,7 @@
 #    By: sammeuss <sammeuss@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/05/03 08:48:44 by sammeuss          #+#    #+#              #
-#    Updated: 2023/06/01 12:24:40 by sammeuss         ###   ########.fr        #
+#    Updated: 2023/06/02 16:15:00 by sammeuss         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -25,6 +25,8 @@ PRINT_NAME		= so_long
 PRINT_PREFIX	= \033[1m\033[38;5;240m[\033[0m\033[38;5;250m$(PRINT_NAME)\033[1m\033[38;5;240m] \033[38;5;105m~\033[0m
 
 SRC = 		so_long \
+			free \
+			draw \
 			parsing \
 			utils_0 \
 			runnin \
@@ -32,7 +34,6 @@ SRC = 		so_long \
 			map_parsing_1 \
 			get_next_line \
 			get_next_line_utils \
-			init_collectibles \
 			init_game_and_textures \
 			
 

@@ -6,7 +6,7 @@
 /*   By: sammeuss <sammeuss@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/26 13:33:04 by sammeuss          #+#    #+#             */
-/*   Updated: 2023/06/01 14:01:40 by sammeuss         ###   ########.fr       */
+/*   Updated: 2023/06/02 15:50:13 by sammeuss         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -85,21 +85,13 @@ void	print_char_array(char **array)
 	}
 }
 
-void	print_int_array(int **array)
+int	check_hitbox_c(t_game	*g, int c_c, int p_x, int p_y)
 {
-	int	i;
-	int	u;
-
-	i = 0;
-	u = 0;
-	while (array[i])
-	{
-		while (array[i][u])
-		{
-			printf("int_array[i(%d)][u(%d)] : %d\n", i, u, array[i][u]);
-			u++;
-		}
-		u = 0;
-		i++;
-	}
+	if ((p_x < (g->c[c_c]->x + TS))
+		&& ((p_x + g->p->width) > (g->c[c_c]->x))
+		&& (p_y < (g->c[c_c]->y + TS))
+		&& ((p_y + g->p->height) > (g->c[c_c]->y))
+		&& (g->c[c_c]->is_collected == false))
+		return (0);
+	return (1);
 }

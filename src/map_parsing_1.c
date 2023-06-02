@@ -6,7 +6,7 @@
 /*   By: sammeuss <sammeuss@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/25 11:23:25 by sammeuss          #+#    #+#             */
-/*   Updated: 2023/05/30 12:26:11 by sammeuss         ###   ########.fr       */
+/*   Updated: 2023/06/02 16:04:38 by sammeuss         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,15 +16,11 @@ int	map_is_possible(char **map, int **array)
 {
 	int	i;
 	int	u;
-	// int	c_colletctibles;
 
 	i = 0;
 	u = 0;
-	// c_colletctibles = 0;
 	(void)array;
-	print_char_array(map);
 	find_spawn(&i, &u, map);
-	printf("i :%d, u :%d\n", i, u);
 	return (0);
 }
 

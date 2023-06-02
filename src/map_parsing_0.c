@@ -6,7 +6,7 @@
 /*   By: sammeuss <sammeuss@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/17 11:47:08 by sammeuss          #+#    #+#             */
-/*   Updated: 2023/05/30 15:20:21 by sammeuss         ###   ########.fr       */
+/*   Updated: 2023/06/02 15:30:43 by sammeuss         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,6 @@ char	**map_init(char *map)
 	fd = open(map, O_RDONLY);
 	if (fd == -1)
 		return (NULL);
-	printf("fd : %d\n", fd);
 	line = get_next_line(fd);
 	while (line)
 	{
@@ -65,7 +64,6 @@ int	map_is_rectangle(char **map)
 			return (1);
 		i++;
 	}
-	printf("ft_strlen(map[i]) :%zu\ncolonnes :%d\n", ft_strlen(map[i - 1]), colonnes);
 	return (0);
 }
 

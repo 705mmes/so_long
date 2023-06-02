@@ -6,7 +6,7 @@
 /*   By: sammeuss <sammeuss@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/10 12:09:38 by sammeuss          #+#    #+#             */
-/*   Updated: 2023/06/02 09:48:38 by sammeuss         ###   ########.fr       */
+/*   Updated: 2023/06/02 16:14:37 by sammeuss         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,13 @@
 # include "mlx/include/MLX42/MLX42.h"
 
 # define TS 64
+
+typedef struct s_exit
+{	
+	mlx_image_t	*img;
+	int			x;
+	int			y;
+}		t_exit;
 
 typedef struct s_collectibles
 {
@@ -34,6 +41,7 @@ typedef struct s_player
 	int			y;
 	int			width;
 	int			height;
+	int			count_c;
 }		t_player;
 
 typedef struct s_map
@@ -50,6 +58,8 @@ typedef struct s_game
 	mlx_texture_t	**textures;
 	t_map			*map;
 	t_player		*p;
+	t_exit			*e;
+	bool			game_on;
 }		t_game;
 
 // | map_parsing_0.c |
@@ -76,7 +86,7 @@ int				ft_array_len(char	**array);
 // | utils.c |
 
 void			print_char_array(char **array);
-void			print_int_array(int **array);
+int				check_hitbox_c(t_game	*g, int c_c, int p_x, int p_y);
 void			find_spawn(int	*i, int	*u, char **map);
 int				nb_ct(char **map);
 int				check_hitbox(t_game *game, int x, int y);
@@ -99,7 +109,14 @@ void			start(t_game	*game);
 void			main_hook(void *param);
 void			collectibles_hook(void	*param);
 void			collect_c(t_game	*g, int		*c_c);
+void			ft_exit(t_game	*g, int counter);
 
+// | free.c |
+
+void			free_textures(t_game *game);
+void			free_collectible(t_game *game);
+void			free_map(t_game *game);
+void			free_all(t_game *game);
 // -> GNL
 
 # ifndef BUFFER_SIZE
