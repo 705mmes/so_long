@@ -6,13 +6,13 @@
 /*   By: sammeuss <sammeuss@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/26 13:33:04 by sammeuss          #+#    #+#             */
-/*   Updated: 2023/05/31 12:11:26 by sammeuss         ###   ########.fr       */
+/*   Updated: 2023/06/01 14:01:40 by sammeuss         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../inc/so_long.h"
 
-int	check_hitbox(t_game *game, int	x, int	y)
+int	check_hitbox(t_game *game, int x, int y)
 {
 	int	i;
 	int	u;
@@ -23,10 +23,11 @@ int	check_hitbox(t_game *game, int	x, int	y)
 	{
 		while (game->map->array[i][++u])
 		{
-			if ((x < (u * T_S + T_S))
-				&& ((x + game->p->width) < (u * T_S))
-				&& (y < (i * T_S + T_S))
-				&& ((y + game->p->height) < (i * T_S)))
+			if ((x < (u * TS + TS))
+				&& ((x + game->p->width) > (u * TS))
+				&& (y < (i * TS + TS))
+				&& ((y + game->p->height) > (i * TS))
+				&& game->map->array[i][u] == '1')
 				return (1);
 		}
 		u = -1;
@@ -34,7 +35,7 @@ int	check_hitbox(t_game *game, int	x, int	y)
 	return (0);
 }
 
-int	how_many_collectibles(char **map)
+int	nb_ct(char **map)
 {
 	int	i;
 	int	u;

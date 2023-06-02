@@ -6,7 +6,7 @@
 /*   By: sammeuss <sammeuss@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/10 11:59:50 by sammeuss          #+#    #+#             */
-/*   Updated: 2023/05/30 15:22:48 by sammeuss         ###   ########.fr       */
+/*   Updated: 2023/06/01 14:04:57 by sammeuss         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,11 +18,12 @@ int	main(int argc, const char	**argv)
 
 	if (argc != 2)
 		return (EXIT_FAILURE);
-	game = init_game();
 	if (!check_ext((char *)argv[1], ".ber"))
 		return (EXIT_FAILURE);
-	else if (argc == 2)
+	game = init_game();
+	if (argc == 2)
 		game->map->array = map_init((char *)argv[1]);
+	printf("1\n");
 	if (map_checker(game->map->array) == 1)
 		return (EXIT_FAILURE);
 	start(game);

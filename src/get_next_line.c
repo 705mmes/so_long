@@ -6,7 +6,7 @@
 /*   By: sammeuss <sammeuss@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/10 19:13:41 by sammeuss          #+#    #+#             */
-/*   Updated: 2023/05/25 01:56:18 by sammeuss         ###   ########.fr       */
+/*   Updated: 2023/06/01 13:57:43 by sammeuss         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,7 +52,7 @@ char	*ft_strjoin_gnl(char *s1, char *s2, int *read_size, int i)
 	return (r);
 }
 
-char	*ft_read_until_backslash_n(char	*s, int fd, char *save, int *read_size)
+char	*ft_read_backslash(char	*s, int fd, char *save, int *read_size)
 {
 	int		u;
 
@@ -127,7 +127,7 @@ char	*get_next_line(int fd)
 			return (free_item(&line));
 		return (line);
 	}
-	save = ft_read_until_backslash_n(buffer, fd, save, &read_size);
+	save = ft_read_backslash(buffer, fd, save, &read_size);
 	line = ft_line(save, line, &read_size);
 	return (gnl_v2(&save, &line, &read_size, &i));
 }
