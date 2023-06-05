@@ -6,7 +6,7 @@
 /*   By: sammeuss <sammeuss@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/10 12:09:38 by sammeuss          #+#    #+#             */
-/*   Updated: 2023/06/02 16:14:37 by sammeuss         ###   ########.fr       */
+/*   Updated: 2023/06/05 19:00:08 by sammeuss         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,60 +59,67 @@ typedef struct s_game
 	t_map			*map;
 	t_player		*p;
 	t_exit			*e;
+	int				score;
 	bool			game_on;
 }		t_game;
 
 // | map_parsing_0.c |
 
-int				map_is_rectangle(char **map);
-int				map_checker(char **map);
 char			**map_init(char *map);
-int				check_for_spawn(char **map);
+int				map_checker(char **map);
+int				map_is_rectangle(char **map);
 int				check_for_exit(char **map);
+int				check_for_spawn(char **map);
 
 // | map_parsing_1.c |
+int				check_chars_in_map(char	**map);
 int				check_for_collectibles(char **map);
 int				map_is_closed(char **map);
+
+// | map_is_possible.c |
+
+int				final_check(char **map, int **array);
+int				nb_possibilities(int **array, int count);
+int				check_sides(int	**array, int count, int i, int u);
+int				map_is_possible(char **map);
 int				**init_int_array(char **map);
-int				map_is_possible(char **map, int **array);
 
 // | parsing.c |
 
-int				ft_error(void);
+int				ft_array_len(char	**array);
 bool			check_ext(char	*file_name, char	*ext);
 char			**ft_array_join(char **array, char *line);
-int				ft_array_len(char	**array);
 
 // | utils.c |
 
-void			print_char_array(char **array);
-int				check_hitbox_c(t_game	*g, int c_c, int p_x, int p_y);
-void			find_spawn(int	*i, int	*u, char **map);
-int				nb_ct(char **map);
 int				check_hitbox(t_game *game, int x, int y);
+int				nb_ct(char **map);
+void			find_spawn(int	*i, int	*u, char **map);
+int				check_hitbox_c(t_game	*g, int c_c, int p_x, int p_y);
 
 // |init_game_and_textures.c |
 
 void			*init_game(void);
 void			init_textures(t_game *game);
-void			draw_map(char	**map, t_game *game);
-void			draw_exit_and_player(char **map, t_game *g);
+t_collectibles	*init_collectibles(t_game *g, int i, int u);
 
-// | init_collectibles.c |
+// | draw.c |
 
 void			draw_collectibles(char	**map, t_game	*g);
-t_collectibles	*init_collectibles(t_game *g, int i, int u);
+void			draw_map(char	**map, t_game *game);
+void			draw_exit_and_player(char **map, t_game *g);
 
 // | runnin.c |
 
 void			start(t_game	*game);
 void			main_hook(void *param);
 void			collectibles_hook(void	*param);
-void			collect_c(t_game	*g, int		*c_c);
 void			ft_exit(t_game	*g, int counter);
+void			move(t_game	*game, int choice);
 
 // | free.c |
 
+void			free_int_array(int	**array);
 void			free_textures(t_game *game);
 void			free_collectible(t_game *game);
 void			free_map(t_game *game);

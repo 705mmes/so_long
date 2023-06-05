@@ -6,17 +6,11 @@
 /*   By: sammeuss <sammeuss@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/16 12:46:12 by sammeuss          #+#    #+#             */
-/*   Updated: 2023/05/26 13:33:30 by sammeuss         ###   ########.fr       */
+/*   Updated: 2023/06/05 17:51:12 by sammeuss         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../inc/so_long.h"
-
-int	ft_error(void)
-{
-	printf("ERROR\n");
-	return (1);
-}
 
 int	ft_array_len(char	**array)
 {

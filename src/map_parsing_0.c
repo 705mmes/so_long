@@ -6,7 +6,7 @@
 /*   By: sammeuss <sammeuss@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/17 11:47:08 by sammeuss          #+#    #+#             */
-/*   Updated: 2023/06/02 15:30:43 by sammeuss         ###   ########.fr       */
+/*   Updated: 2023/06/05 18:24:48 by sammeuss         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,17 +38,15 @@ char	**map_init(char *map)
 
 int	map_checker(char **map)
 {
-	int	**array;
-
-	array = init_int_array(map);
-	if (map_is_rectangle(map) == 0)
-		if (check_for_spawn(map) == 0)
-			if (check_for_exit(map) == 0)
-				if (check_for_exit(map) == 0)
-					if (map_is_closed(map) == 0)
-						if (map_is_possible(map, array) == 0)
-							return (0);
-	return (ft_error());
+	if (check_chars_in_map(map) == 0)
+		if (map_is_rectangle(map) == 0)
+			if (check_for_spawn(map) == 0)
+				if (check_for_collectibles(map) == 0)
+					if (check_for_exit(map) == 0)
+						if (map_is_closed(map) == 0)
+							if (map_is_possible(map) == 0)
+								return (0);
+	return (1);
 }
 
 int	map_is_rectangle(char **map)
@@ -56,13 +54,15 @@ int	map_is_rectangle(char **map)
 	int				i;
 	unsigned int	colonnes;
 
-	i = 0;
+	i = -1;
 	colonnes = ft_array_len(map);
-	while (map[i])
+	while (map[++i])
 	{
 		if (ft_strlen(map[i]) == colonnes)
+		{
+			ft_printf("Error\nMap is not rectangle\n");
 			return (1);
-		i++;
+		}
 	}
 	return (0);
 }
@@ -72,19 +72,18 @@ int	check_for_spawn(char **map)
 	int	i;
 	int	u;
 
-	u = 0;
-	i = 0;
-	while (map[i])
+	u = -1;
+	i = -1;
+	while (map[++i])
 	{
-		while (map[i][u])
+		while (map[i][++u])
 		{
 			if (map[i][u] == 'S')
 				return (0);
-			u++;
 		}
-		u = 0;
-		i++;
+		u = -1;
 	}
+	ft_printf("Error\nMissing a spawn point");
 	return (1);
 }
 
@@ -93,18 +92,17 @@ int	check_for_exit(char **map)
 	int	i;
 	int	u;
 
-	u = 0;
-	i = 0;
-	while (map[i])
+	u = -1;
+	i = -1;
+	while (map[++i])
 	{
-		while (map[i][u])
+		while (map[i][++u])
 		{
 			if (map[i][u] == 'E')
 				return (0);
-			u++;
 		}
-		u = 0;
-		i++;
+		u = -1;
 	}
+	ft_printf("Error\nCan't get out\n");
 	return (1);
 }

@@ -6,7 +6,7 @@
 #    By: sammeuss <sammeuss@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/05/03 08:48:44 by sammeuss          #+#    #+#              #
-#    Updated: 2023/06/02 16:15:00 by sammeuss         ###   ########.fr        #
+#    Updated: 2023/06/05 18:57:35 by sammeuss         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -28,10 +28,11 @@ SRC = 		so_long \
 			free \
 			draw \
 			parsing \
-			utils_0 \
+			utils \
 			runnin \
 			map_parsing_0 \
 			map_parsing_1 \
+			map_is_possible \
 			get_next_line \
 			get_next_line_utils \
 			init_game_and_textures \

@@ -6,50 +6,34 @@
 /*   By: sammeuss <sammeuss@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/25 11:23:25 by sammeuss          #+#    #+#             */
-/*   Updated: 2023/06/02 16:04:38 by sammeuss         ###   ########.fr       */
+/*   Updated: 2023/06/05 18:18:45 by sammeuss         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../inc/so_long.h"
 
-int	map_is_possible(char **map, int **array)
+int	check_chars_in_map(char	**map)
 {
 	int	i;
 	int	u;
 
-	i = 0;
-	u = 0;
-	(void)array;
-	find_spawn(&i, &u, map);
-	return (0);
-}
-
-int	**init_int_array(char **map)
-{
-	int	**array;
-	int	i;
-	int	u;
-
+	i = -1;
 	u = -1;
-	i = -1;
-	array = malloc(sizeof(int *) * ft_array_len(map));
-	while (++i < ft_array_len(map))
-		array[i] = malloc(sizeof(int) * ft_strlen(map[i]));
-	i = -1;
 	while (map[++i])
 	{
 		while (map[i][++u])
 		{
-			if (map[i][u] == '1')
-				array[i][u] = 1;
-			else if (map[i][u] == 'C')
-				array[i][u] = 2;
-			else
-				array[i][u] = 0;
+			if (map[i][u] != 'S' && map[i][u] != 'E'
+				&& map[i][u] != '1' && map[i][u] != '0'
+				&& map[i][u] != 'C')
+			{
+				ft_printf("Error\nMap cursed\n");
+				return (1);
+			}
 		}
-		u = 0;
+		u = -1;
 	}
-	return (array);
+	return (0);
 }
 
 int	check_for_collectibles(char **map)
@@ -70,6 +54,7 @@ int	check_for_collectibles(char **map)
 		u = 0;
 		i++;
 	}
+	ft_printf("Error\nMissing collectible(s)\n");
 	return (1);
 }
 
@@ -85,19 +70,13 @@ int	map_is_closed(char **map)
 	while (map[ft_array_len(map) - 1][++i])
 		if (map[ft_array_len(map) - 1][i] != '1')
 			return (1);
-	i = 0;
-	while (i < ft_array_len(map))
-	{
+	i = -1;
+	while (++i < ft_array_len(map))
 		if (map[i][0] != '1')
 			return (1);
-		i++;
-	}
-	i = 0;
-	while (i < ft_array_len(map))
-	{
+	i = -1;
+	while (++i < ft_array_len(map))
 		if (map[i][ft_strlen(map[0]) - 1] != '1')
 			return (1);
-		i++;
-	}
 	return (0);
 }

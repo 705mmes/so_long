@@ -6,7 +6,7 @@
 /*   By: sammeuss <sammeuss@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/30 12:37:40 by sammeuss          #+#    #+#             */
-/*   Updated: 2023/06/02 15:31:54 by sammeuss         ###   ########.fr       */
+/*   Updated: 2023/06/05 17:32:46 by sammeuss         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,7 @@ void	*init_game(void)
 	s_l->p->height = 61;
 	s_l->p->width = 64;
 	s_l->game_on = false;
+	s_l->score = 0;
 	init_textures(s_l);
 	return (s_l);
 }

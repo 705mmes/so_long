@@ -6,7 +6,7 @@
 /*   By: sammeuss <sammeuss@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/30 20:19:32 by sammeuss          #+#    #+#             */
-/*   Updated: 2023/06/02 16:03:34 by sammeuss         ###   ########.fr       */
+/*   Updated: 2023/06/05 17:45:42 by sammeuss         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,18 +38,18 @@ void	main_hook(void *param)
 	y = game->p->img->instances[0].y;
 	if (mlx_is_key_down(game->mlx, MLX_KEY_ESCAPE))
 		mlx_close_window(game->mlx);
-	if (mlx_is_key_down(game->mlx, MLX_KEY_UP)
+	if (mlx_is_key_down(game->mlx, MLX_KEY_W)
 		&& check_hitbox(game, x, y - 2) == 0)
-		game->p->img->instances[0].y -= 2;
-	if (mlx_is_key_down(game->mlx, MLX_KEY_DOWN)
+		move(game, 1);
+	if (mlx_is_key_down(game->mlx, MLX_KEY_S)
 		&& check_hitbox(game, x, y + 2) == 0)
-		game->p->img->instances[0].y += 2;
-	if (mlx_is_key_down(game->mlx, MLX_KEY_LEFT)
+		move(game, 2);
+	if (mlx_is_key_down(game->mlx, MLX_KEY_A)
 		&& check_hitbox(game, x - 2, y) == 0)
-		game->p->img->instances[0].x -= 2;
-	if (mlx_is_key_down(game->mlx, MLX_KEY_RIGHT)
+		move(game, 0);
+	if (mlx_is_key_down(game->mlx, MLX_KEY_D)
 		&& check_hitbox(game, x + 2, y) == 0)
-		game->p->img->instances[0].x += 2;
+		move(game, 3);
 }
 
 void	collectibles_hook(void	*param)
@@ -96,4 +96,18 @@ void	ft_exit(t_game	*g, int counter)
 			mlx_close_window(g->mlx);
 		}
 	}
+}
+
+void	move(t_game	*game, int choice)
+{
+	if (choice == 0)
+		game->p->img->instances[0].x -= 2;
+	else if (choice == 1)
+		game->p->img->instances[0].y -= 2;
+	else if (choice == 2)
+		game->p->img->instances[0].y += 2;
+	else if (choice == 3)
+		game->p->img->instances[0].x += 2;
+	game->score++;
+	ft_printf("score -> %d\n", game->score);
 }

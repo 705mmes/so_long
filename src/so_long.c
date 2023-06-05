@@ -6,7 +6,7 @@
 /*   By: sammeuss <sammeuss@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/10 11:59:50 by sammeuss          #+#    #+#             */
-/*   Updated: 2023/06/02 22:38:27 by sammeuss         ###   ########.fr       */
+/*   Updated: 2023/06/05 18:11:07 by sammeuss         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,5 +29,3 @@ int	main(int argc, const char	**argv)
 	free_all(game);
 	return (EXIT_SUCCESS);
 }
-
-// ADD COUNT AND FT_MAP_IS_POSSIbLE

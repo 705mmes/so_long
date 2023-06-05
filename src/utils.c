@@ -6,7 +6,7 @@
 /*   By: sammeuss <sammeuss@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/26 13:33:04 by sammeuss          #+#    #+#             */
-/*   Updated: 2023/06/02 15:50:13 by sammeuss         ###   ########.fr       */
+/*   Updated: 2023/06/05 18:54:33 by sammeuss         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,28 +60,14 @@ int	nb_ct(char **map)
 
 void	find_spawn(int	*i, int	*u, char **map)
 {
-	while (map[*i])
+	while (map[++(*i)])
 	{
-		while (map[*i][*u])
+		while (map[*i][++(*u)])
 		{
 			if (map[*i][*u] == 'S')
 				return ;
-			(*u)++;
 		}
-		*u = 0;
-		(*i)++;
-	}
-}
-
-void	print_char_array(char **array)
-{
-	int	i;
-
-	i = 0;
-	while (array[i])
-	{
-		printf("char_array[i(%d)] : %s\n", i, array[i]);
-		i++;
+		*u = -1;
 	}
 }
 
