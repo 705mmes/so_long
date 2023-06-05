@@ -6,7 +6,7 @@
 /*   By: sammeuss <sammeuss@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/04 16:08:10 by sammeuss          #+#    #+#             */
-/*   Updated: 2023/06/05 18:29:40 by sammeuss         ###   ########.fr       */
+/*   Updated: 2023/06/05 19:39:38 by sammeuss         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -109,7 +109,7 @@ int	**init_int_array(char **map)
 
 	u = -1;
 	i = -1;
-	array = malloc(sizeof(int *) * ft_array_len(map));
+	array = malloc(sizeof(int *) * ft_array_len(map) + 1);
 	while (++i < ft_array_len(map))
 		array[i] = malloc(sizeof(int) * ft_strlen(map[i]) + 1);
 	i = -1;

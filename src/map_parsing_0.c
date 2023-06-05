@@ -6,7 +6,7 @@
 /*   By: sammeuss <sammeuss@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/17 11:47:08 by sammeuss          #+#    #+#             */
-/*   Updated: 2023/06/05 18:24:48 by sammeuss         ###   ########.fr       */
+/*   Updated: 2023/06/05 19:40:01 by sammeuss         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,14 +51,16 @@ int	map_checker(char **map)
 
 int	map_is_rectangle(char **map)
 {
-	int				i;
-	unsigned int	colonnes;
+	int	i;
+	int	array_len;
+	int	line_len;
 
+	line_len = ft_strlen(map[0]);
+	array_len = ft_array_len(map);
 	i = -1;
-	colonnes = ft_array_len(map);
-	while (map[++i])
+	while (++i < array_len)
 	{
-		if (ft_strlen(map[i]) == colonnes)
+		if (ft_strlen(map[i]) != (size_t)line_len)
 		{
 			ft_printf("Error\nMap is not rectangle\n");
 			return (1);
