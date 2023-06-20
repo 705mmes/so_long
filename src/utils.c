@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   utils_0.c                                          :+:      :+:    :+:   */
+/*   utils.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: sammeuss <sammeuss@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/26 13:33:04 by sammeuss          #+#    #+#             */
-/*   Updated: 2023/06/05 18:54:33 by sammeuss         ###   ########.fr       */
+/*   Updated: 2023/06/13 11:23:42 by sammeuss         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -80,4 +80,13 @@ int	check_hitbox_c(t_game	*g, int c_c, int p_x, int p_y)
 		&& (g->c[c_c]->is_collected == false))
 		return (0);
 	return (1);
+}
+
+void	free_char_array(char	**array)
+{
+	int	i;
+
+	i = -1;
+	while (++i < ft_array_len(array))
+		free(array[i]);
 }

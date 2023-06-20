@@ -6,7 +6,7 @@
 /*   By: sammeuss <sammeuss@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/04 16:08:10 by sammeuss          #+#    #+#             */
-/*   Updated: 2023/06/05 19:39:38 by sammeuss         ###   ########.fr       */
+/*   Updated: 2023/06/06 13:48:08 by sammeuss         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,7 @@ int	final_check(char **map, int **array)
 	return (0);
 }
 
-int	nb_possibilities(int **array, int count)
+int	nb_possibilities(int **array, int count, char **map)
 {
 	int	i;
 	int	u;
@@ -42,9 +42,9 @@ int	nb_possibilities(int **array, int count)
 	r = 0;
 	u = -1;
 	i = -1;
-	while (array[++i])
+	while (++i < ft_array_len_int(array, map))
 	{
-		while (array[i][++u])
+		while (++u < (int)ft_strlen(map[i]))
 		{
 			if (array[i][u] >= 2)
 				r += check_sides(array, count, i, u);
@@ -89,15 +89,15 @@ int	map_is_possible(char **map)
 
 	count = 2;
 	array = init_int_array(map);
-	while (nb_possibilities(array, count) > 0)
+	while (nb_possibilities(array, count, map) > 0)
 		count++;
 	if (final_check(map, array) == 1)
 	{
 		ft_printf("Error\nMap isn't possible\n");
-		free_int_array(array);
+		free_int_array(array, map);
 		return (1);
 	}
-	free_int_array(array);
+	free_int_array(array, map);
 	return (0);
 }
 

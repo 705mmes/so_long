@@ -6,7 +6,7 @@
 /*   By: sammeuss <sammeuss@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/17 11:47:08 by sammeuss          #+#    #+#             */
-/*   Updated: 2023/06/05 19:40:01 by sammeuss         ###   ########.fr       */
+/*   Updated: 2023/06/20 11:04:29 by sammeuss         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,9 +17,7 @@ char	**map_init(char *map)
 	char	**map_array;
 	char	*line;
 	int		fd;
-	int		i;
 
-	i = -1;
 	map_array = NULL;
 	line = NULL;
 	fd = open(map, O_RDONLY);
@@ -28,11 +26,9 @@ char	**map_init(char *map)
 	line = get_next_line(fd);
 	while (line)
 	{
-		i++;
 		map_array = ft_array_join(map_array, line);
 		line = get_next_line(fd);
 	}
-	free(line);
 	return (map_array);
 }
 

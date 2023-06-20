@@ -6,7 +6,7 @@
 /*   By: sammeuss <sammeuss@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/10 12:09:38 by sammeuss          #+#    #+#             */
-/*   Updated: 2023/06/05 19:00:08 by sammeuss         ###   ########.fr       */
+/*   Updated: 2023/06/20 11:03:36 by sammeuss         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -79,7 +79,7 @@ int				map_is_closed(char **map);
 // | map_is_possible.c |
 
 int				final_check(char **map, int **array);
-int				nb_possibilities(int **array, int count);
+int				nb_possibilities(int **array, int count, char	**map);
 int				check_sides(int	**array, int count, int i, int u);
 int				map_is_possible(char **map);
 int				**init_int_array(char **map);
@@ -87,8 +87,10 @@ int				**init_int_array(char **map);
 // | parsing.c |
 
 int				ft_array_len(char	**array);
+int				ft_array_len_int(int	**array, char **map);
 bool			check_ext(char	*file_name, char	*ext);
 char			**ft_array_join(char **array, char *line);
+char			*freeall(char **str);
 
 // | utils.c |
 
@@ -96,6 +98,7 @@ int				check_hitbox(t_game *game, int x, int y);
 int				nb_ct(char **map);
 void			find_spawn(int	*i, int	*u, char **map);
 int				check_hitbox_c(t_game	*g, int c_c, int p_x, int p_y);
+void			free_char_array(char **array);
 
 // |init_game_and_textures.c |
 
@@ -119,7 +122,7 @@ void			move(t_game	*game, int choice);
 
 // | free.c |
 
-void			free_int_array(int	**array);
+void			free_int_array(int	**array, char **map);
 void			free_textures(t_game *game);
 void			free_collectible(t_game *game);
 void			free_map(t_game *game);

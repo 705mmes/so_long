@@ -6,7 +6,7 @@
 #    By: sammeuss <sammeuss@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/05/03 08:48:44 by sammeuss          #+#    #+#              #
-#    Updated: 2023/06/05 18:57:35 by sammeuss         ###   ########.fr        #
+#    Updated: 2023/06/20 11:07:19 by sammeuss         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -39,7 +39,7 @@ SRC = 		so_long \
 			
 
 CC = gcc
-CFLAGS = -Wall -Werror -Wextra -g3
+CFLAGS = -Wall -Werror -Wextra -g3 -fsanitize=address
 
 LIBFT_DIR	= inc/libft/
 MLX_DIR		= inc/mlx/build/

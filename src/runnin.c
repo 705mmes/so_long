@@ -6,7 +6,7 @@
 /*   By: sammeuss <sammeuss@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/30 20:19:32 by sammeuss          #+#    #+#             */
-/*   Updated: 2023/06/05 17:45:42 by sammeuss         ###   ########.fr       */
+/*   Updated: 2023/06/13 11:07:17 by sammeuss         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,9 @@ void	start(t_game	*game)
 	mlx_loop_hook(game->mlx, main_hook, game);
 	mlx_loop_hook(game->mlx, collectibles_hook, game);
 	mlx_loop(game->mlx);
+	free_all(game);
+	mlx_terminate(game->mlx);
+	free(game);
 }
 
 void	main_hook(void *param)

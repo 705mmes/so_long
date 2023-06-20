@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   init_collectibles.c                                :+:      :+:    :+:   */
+/*   draw.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: sammeuss <sammeuss@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/01 12:23:12 by sammeuss          #+#    #+#             */
-/*   Updated: 2023/06/02 15:32:01 by sammeuss         ###   ########.fr       */
+/*   Updated: 2023/06/06 13:56:06 by sammeuss         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ void	draw_collectibles(char	**map, t_game	*g)
 	i = -1;
 	u = -1;
 	j = -1;
-	g->c = malloc(sizeof(t_collectibles *) * nb_ct(map) + 1);
+	g->c = malloc(sizeof(t_collectibles *) * ((nb_ct(map) + 1)));
 	while (map[++i])
 	{
 		while (map[i][++u])

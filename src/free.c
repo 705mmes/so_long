@@ -6,18 +6,18 @@
 /*   By: sammeuss <sammeuss@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/02 16:05:54 by sammeuss          #+#    #+#             */
-/*   Updated: 2023/06/05 18:42:37 by sammeuss         ###   ########.fr       */
+/*   Updated: 2023/06/13 11:06:45 by sammeuss         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../inc/so_long.h"
 
-void	free_int_array(int	**array)
+void	free_int_array(int	**array, char **map)
 {
 	int	i;
 
 	i = -1;
-	while (array[++i])
+	while (++i < ft_array_len_int(array, map))
 		free(array[i]);
 	free(array);
 }
@@ -53,27 +53,26 @@ void	free_map(t_game *game)
 {
 	int	i;
 
-	i = 0;
-	while (game->map->array[i])
-	{
+	i = -1;
+	while (game->map->array[++i])
 		free(game->map->array[i]);
-		i++;
-	}
 	free(game->map->array);
 	free(game->map);
 }
 
 void	free_all(t_game *game)
 {
-	if (game->c)
-		free_collectible(game);
-	if (game->p->img)
-		mlx_delete_image(game->mlx, game->p->img);
-	if (game->e->img)
-		mlx_delete_image(game->mlx, game->e->img);
+	free_collectible(game);
 	free_map(game);
+	if (game->p->img)
+	{
+		mlx_delete_image(game->mlx, game->p->img);
+		free(game->p);
+	}
+	if (game->e->img)
+	{
+		mlx_delete_image(game->mlx, game->e->img);
+		free(game->e);
+	}
 	free_textures(game);
-	free(game->p);
-	free(game->e);
-	free(game);
 }
