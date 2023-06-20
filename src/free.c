@@ -6,7 +6,7 @@
 /*   By: sammeuss <sammeuss@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/02 16:05:54 by sammeuss          #+#    #+#             */
-/*   Updated: 2023/06/13 11:06:45 by sammeuss         ###   ########.fr       */
+/*   Updated: 2023/06/20 11:56:13 by sammeuss         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,8 +62,6 @@ void	free_map(t_game *game)
 
 void	free_all(t_game *game)
 {
-	free_collectible(game);
-	free_map(game);
 	if (game->p->img)
 	{
 		mlx_delete_image(game->mlx, game->p->img);
@@ -74,5 +72,9 @@ void	free_all(t_game *game)
 		mlx_delete_image(game->mlx, game->e->img);
 		free(game->e);
 	}
-	free_textures(game);
+	if (game->c)
+		free_collectible(game);
+	if (game->textures)
+		free_textures(game);
+	free_map(game);
 }
