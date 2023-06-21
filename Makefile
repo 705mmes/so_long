@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: sammeuss <sammeuss@student.42.fr>          +#+  +:+       +#+         #
+#    By: smunio <smunio@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/05/03 08:48:44 by sammeuss          #+#    #+#              #
-#    Updated: 2023/06/20 11:25:38 by sammeuss         ###   ########.fr        #
+#    Updated: 2023/06/21 10:48:41 by smunio           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -55,7 +55,7 @@ $(NAME): $(OBJS)
 		@echo "$(PRINT_PREFIX)\033[0;38;5;226m Compiling \033[0m\n"
 		@make -C inc/libft
 		@make -C inc/libft bonus
-		@$(CC) $(CFLAGS) -o $(NAME) $(OBJS) $(LIBFT_DIR)libft.a $(MLX_DIR)libmlx42.a -Iinclude -lglfw -L"/opt/homebrew/Cellar/glfw/3.3.8/lib/"
+		@$(CC) $(CFLAGS) -o $(NAME) $(OBJS) $(LIBFT_DIR)libft.a $(MLX_DIR)libmlx42.a -Iinclude -lglfw -L"/Users/smunio/.brew/Cellar/glfw/3.3.8/lib/"
 		@echo "$(PRINT_PREFIX)\033[0;38;5;226m Compiling Done \033[0m\n"
 
 $(DIR_OBJS)%.o :	$(DIR_SRCS)%.c $(OBJF)
