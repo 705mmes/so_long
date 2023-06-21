@@ -6,7 +6,7 @@
 /*   By: sammeuss <sammeuss@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/10 11:59:50 by sammeuss          #+#    #+#             */
-/*   Updated: 2023/06/20 11:31:41 by sammeuss         ###   ########.fr       */
+/*   Updated: 2023/06/21 10:36:14 by sammeuss         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ int	main(int argc, const char	**argv)
 		game->map->array = map_init((char *)argv[1]);
 	if (map_checker(game->map->array) == 1)
 	{
-		free_all(game);
+		free_necessary(game);
 		return (EXIT_FAILURE);
 	}
 	start(game);

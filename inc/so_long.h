@@ -6,7 +6,7 @@
 /*   By: sammeuss <sammeuss@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/10 12:09:38 by sammeuss          #+#    #+#             */
-/*   Updated: 2023/06/20 11:03:36 by sammeuss         ###   ########.fr       */
+/*   Updated: 2023/06/20 18:09:07 by sammeuss         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -105,6 +105,7 @@ void			free_char_array(char **array);
 void			*init_game(void);
 void			init_textures(t_game *game);
 t_collectibles	*init_collectibles(t_game *g, int i, int u);
+void			free_necessary(t_game *game);
 
 // | draw.c |
 

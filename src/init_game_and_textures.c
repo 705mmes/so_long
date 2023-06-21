@@ -6,7 +6,7 @@
 /*   By: sammeuss <sammeuss@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/30 12:37:40 by sammeuss          #+#    #+#             */
-/*   Updated: 2023/06/06 14:43:35 by sammeuss         ###   ########.fr       */
+/*   Updated: 2023/06/20 18:37:17 by sammeuss         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,4 +52,14 @@ t_collectibles	*init_collectibles(t_game	*g, int i, int u)
 	c->is_collected = false;
 	mlx_image_to_window(g->mlx, c->img, c->x + 16, c->y + 16);
 	return (c);
+}
+
+void	free_necessary(t_game *game)
+{
+	free(game->map);
+	free(game->e);
+	free(game->p);
+	if (game->textures)
+		free_textures(game);
+	free(game);
 }
