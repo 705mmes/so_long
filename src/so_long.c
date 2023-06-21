@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   so_long.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: sammeuss <sammeuss@student.42.fr>          +#+  +:+       +#+        */
+/*   By: smunio <smunio@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/10 11:59:50 by sammeuss          #+#    #+#             */
-/*   Updated: 2023/06/21 10:36:14 by sammeuss         ###   ########.fr       */
+/*   Updated: 2023/06/21 12:44:55 by smunio           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,5 +32,14 @@ int	main(int argc, const char	**argv)
 		return (EXIT_FAILURE);
 	}
 	start(game);
+	// system("leaks so_long");
 	return (EXIT_SUCCESS);
 }
+
+// Erreurs:
+// - Plusieurs spawn/sorties
+// - Message d'erreur map non fermée
+// - Erreur sur 1ere ligne vide
+// - Segmentation fault si on essaye d'ouvrir un dossier .ber
+// - Segfault sur map fault
+// - (Met des \n apres tes messages d'erreur)

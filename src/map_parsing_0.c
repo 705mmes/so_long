@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   map_parsing_0.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: sammeuss <sammeuss@student.42.fr>          +#+  +:+       +#+        */
+/*   By: smunio <smunio@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/17 11:47:08 by sammeuss          #+#    #+#             */
-/*   Updated: 2023/06/20 11:04:29 by sammeuss         ###   ########.fr       */
+/*   Updated: 2023/06/21 12:58:31 by smunio           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,11 @@ char	**map_init(char *map)
 	if (fd == -1)
 		return (NULL);
 	line = get_next_line(fd);
+	if (!line)
+	{
+		ft_printf("Error\nSomething is wrong\n");
+		exit(EXIT_FAILURE);
+	}
 	while (line)
 	{
 		map_array = ft_array_join(map_array, line);
@@ -69,7 +74,9 @@ int	check_for_spawn(char **map)
 {
 	int	i;
 	int	u;
+	int	count;
 
+	count = 0;
 	u = -1;
 	i = -1;
 	while (map[++i])
@@ -77,19 +84,25 @@ int	check_for_spawn(char **map)
 		while (map[i][++u])
 		{
 			if (map[i][u] == 'S')
-				return (0);
+				count++;
 		}
 		u = -1;
 	}
-	ft_printf("Error\nMissing a spawn point");
-	return (1);
+	if (count != 1)
+	{
+		ft_printf("Error\nWrong number of spawn(s)\n");
+		return (1);
+	}
+	return (0);
 }
 
 int	check_for_exit(char **map)
 {
 	int	i;
 	int	u;
+	int	count;
 
+	count = 0;
 	u = -1;
 	i = -1;
 	while (map[++i])
@@ -97,10 +110,14 @@ int	check_for_exit(char **map)
 		while (map[i][++u])
 		{
 			if (map[i][u] == 'E')
-				return (0);
+				count++;
 		}
 		u = -1;
 	}
-	ft_printf("Error\nCan't get out\n");
-	return (1);
+	if (count != 1)
+	{
+		ft_printf("Error\nNo/too much exit(s)\n");
+		return (1);
+	}
+	return (0);
 }

@@ -1,0 +1,3 @@
+/Users/smunio/Desktop/aa/inc/mlx/cmake/CMakeFiles/mlx42.dir
+/Users/smunio/Desktop/aa/inc/mlx/cmake/CMakeFiles/edit_cache.dir
+/Users/smunio/Desktop/aa/inc/mlx/cmake/CMakeFiles/rebuild_cache.dir
