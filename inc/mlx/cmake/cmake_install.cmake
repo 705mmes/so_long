@@ -1,4 +1,4 @@
-# Install script for directory: /Users/smunio/Desktop/aa/inc/mlx
+# Install script for directory: /Users/smunio/Desktop/test_sl/inc/mlx
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
@@ -45,5 +45,5 @@ endif()
 
 string(REPLACE ";" "\n" CMAKE_INSTALL_MANIFEST_CONTENT
        "${CMAKE_INSTALL_MANIFEST_FILES}")
-file(WRITE "/Users/smunio/Desktop/aa/inc/mlx/cmake/${CMAKE_INSTALL_MANIFEST}"
+file(WRITE "/Users/smunio/Desktop/test_sl/inc/mlx/cmake/${CMAKE_INSTALL_MANIFEST}"
      "${CMAKE_INSTALL_MANIFEST_CONTENT}")

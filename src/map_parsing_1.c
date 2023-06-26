@@ -6,7 +6,7 @@
 /*   By: smunio <smunio@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/25 11:23:25 by sammeuss          #+#    #+#             */
-/*   Updated: 2023/06/21 12:42:13 by smunio           ###   ########.fr       */
+/*   Updated: 2023/06/26 12:06:45 by smunio           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,18 +65,18 @@ int	map_is_closed(char **map)
 	i = -1;
 	while (map[0][++i])
 		if (map[0][i] != '1')
-			return (0);
+			return (ft_printf("Error\nMap is not closed\n"));
 	i = -1;
 	while (map[ft_array_len(map) - 1][++i])
 		if (map[ft_array_len(map) - 1][i] != '1')
-			return (0);
+			return (ft_printf("Error\nMap is not closed\n"));
 	i = -1;
 	while (++i < ft_array_len(map))
 		if (map[i][0] != '1')
-			return (0);
+			return (ft_printf("Error\nMap is not closed\n"));
 	i = -1;
 	while (++i < ft_array_len(map))
 		if (map[i][ft_strlen(map[0]) - 1] != '1')
-			return (0);
-	return (ft_printf("Error\nMap is not closed\n"));
+			return (ft_printf("Error\nMap is not closed\n"));
+	return (0);
 }

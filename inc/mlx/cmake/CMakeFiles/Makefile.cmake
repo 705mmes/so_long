@@ -105,7 +105,7 @@ set(CMAKE_MAKEFILE_DEPENDS
   "/Users/smunio/.brew/Cellar/cmake/3.26.4/share/cmake/Modules/Platform/Darwin-Initialize.cmake"
   "/Users/smunio/.brew/Cellar/cmake/3.26.4/share/cmake/Modules/Platform/Darwin.cmake"
   "/Users/smunio/.brew/Cellar/cmake/3.26.4/share/cmake/Modules/Platform/UnixPaths.cmake"
-  "/Users/smunio/Desktop/aa/inc/mlx/CMakeLists.txt"
+  "/Users/smunio/Desktop/test_sl/inc/mlx/CMakeLists.txt"
   "CMakeFiles/3.26.4/CMakeCCompiler.cmake"
   "CMakeFiles/3.26.4/CMakeCXXCompiler.cmake"
   "CMakeFiles/3.26.4/CMakeSystem.cmake"
