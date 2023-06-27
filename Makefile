@@ -6,7 +6,7 @@
 #    By: smunio <smunio@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/05/03 08:48:44 by sammeuss          #+#    #+#              #
-#    Updated: 2023/06/26 11:44:10 by smunio           ###   ########.fr        #
+#    Updated: 2023/06/27 12:36:39 by smunio           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -55,6 +55,8 @@ $(NAME): $(OBJS)
 		@echo "$(PRINT_PREFIX)\033[0;38;5;226m Compiling \033[0m\n"
 		@make -C inc/libft
 		@make -C inc/libft bonus
+		@cmake inc/mlx -B inc/mlx/build
+		@cmake --build inc/mlx/build -j4
 		@$(CC) $(CFLAGS) -o $(NAME) $(OBJS) $(LIBFT_DIR)libft.a $(MLX_DIR)libmlx42.a -Iinclude -lglfw -L"/Users/smunio/.brew/Cellar/glfw/3.3.8/lib/"
 		@echo "$(PRINT_PREFIX)\033[0;38;5;226m Compiling Done \033[0m\n"
 
