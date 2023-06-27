@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   runnin.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: sammeuss <sammeuss@student.42.fr>          +#+  +:+       +#+        */
+/*   By: smunio <smunio@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/30 20:19:32 by sammeuss          #+#    #+#             */
-/*   Updated: 2023/06/13 11:07:17 by sammeuss         ###   ########.fr       */
+/*   Updated: 2023/06/27 13:25:33 by smunio           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,6 +53,7 @@ void	main_hook(void *param)
 	if (mlx_is_key_down(game->mlx, MLX_KEY_D)
 		&& check_hitbox(game, x + 2, y) == 0)
 		move(game, 3);
+	ft_score_hook(param);
 }
 
 void	collectibles_hook(void	*param)

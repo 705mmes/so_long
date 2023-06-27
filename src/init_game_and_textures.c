@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   init_game_and_textures.c                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: sammeuss <sammeuss@student.42.fr>          +#+  +:+       +#+        */
+/*   By: smunio <smunio@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/30 12:37:40 by sammeuss          #+#    #+#             */
-/*   Updated: 2023/06/20 18:37:17 by sammeuss         ###   ########.fr       */
+/*   Updated: 2023/06/27 13:16:47 by smunio           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,7 @@ void	*init_game(void)
 	s_l->game_on = false;
 	s_l->score = 0;
 	s_l->p->count_c = 0;
+	s_l->score_img = NULL;
 	init_textures(s_l);
 	return (s_l);
 }

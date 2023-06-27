@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   so_long.h                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: sammeuss <sammeuss@student.42.fr>          +#+  +:+       +#+        */
+/*   By: smunio <smunio@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/10 12:09:38 by sammeuss          #+#    #+#             */
-/*   Updated: 2023/06/20 18:09:07 by sammeuss         ###   ########.fr       */
+/*   Updated: 2023/06/27 13:30:26 by smunio           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,6 +60,7 @@ typedef struct s_game
 	t_player		*p;
 	t_exit			*e;
 	int				score;
+	mlx_image_t		*score_img;
 	bool			game_on;
 }		t_game;
 
@@ -128,6 +129,11 @@ void			free_textures(t_game *game);
 void			free_collectible(t_game *game);
 void			free_map(t_game *game);
 void			free_all(t_game *game);
+
+// | so_long.c |
+
+void			ft_score_hook(void *param);
+
 // -> GNL
 
 # ifndef BUFFER_SIZE

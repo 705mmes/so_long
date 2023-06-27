@@ -6,7 +6,7 @@
 /*   By: smunio <smunio@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/10 11:59:50 by sammeuss          #+#    #+#             */
-/*   Updated: 2023/06/26 12:09:42 by smunio           ###   ########.fr       */
+/*   Updated: 2023/06/27 13:25:56 by smunio           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,4 +33,20 @@ int	main(int argc, const char	**argv)
 	}
 	start(game);
 	return (EXIT_SUCCESS);
+}
+
+void	ft_score_hook(void *param)
+{
+	t_game	*game;
+	char	*s;
+
+	game = (t_game *)param;
+	s = ft_strjoin("Score -> ", ft_itoa(game->score));
+	if (game->score_img == NULL)
+		game->score_img = mlx_put_string(game->mlx, s, 0, 0);
+	else
+	{
+		mlx_delete_image(game->mlx, game->score_img);
+		game->score_img = mlx_put_string(game->mlx, s, 0, 0);
+	}
 }
