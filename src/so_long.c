@@ -6,7 +6,7 @@
 /*   By: smunio <smunio@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/10 11:59:50 by sammeuss          #+#    #+#             */
-/*   Updated: 2023/06/30 13:29:28 by smunio           ###   ########.fr       */
+/*   Updated: 2023/06/30 13:35:06 by smunio           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,6 +32,5 @@ int	main(int argc, const char	**argv)
 		return (EXIT_FAILURE);
 	}
 	start(game);
-	system("leaks so_long");
 	return (EXIT_SUCCESS);
 }
