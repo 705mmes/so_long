@@ -6,7 +6,7 @@
 /*   By: smunio <smunio@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/30 12:37:40 by sammeuss          #+#    #+#             */
-/*   Updated: 2023/06/27 13:16:47 by smunio           ###   ########.fr       */
+/*   Updated: 2023/06/30 13:32:03 by smunio           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,9 +24,8 @@ void	*init_game(void)
 	s_l->p->height = 61;
 	s_l->p->width = 64;
 	s_l->game_on = false;
-	s_l->score = 0;
 	s_l->p->count_c = 0;
-	s_l->score_img = NULL;
+	s_l->p->score = 0;
 	init_textures(s_l);
 	return (s_l);
 }

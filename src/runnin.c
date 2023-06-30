@@ -6,7 +6,7 @@
 /*   By: smunio <smunio@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/30 20:19:32 by sammeuss          #+#    #+#             */
-/*   Updated: 2023/06/27 13:25:33 by smunio           ###   ########.fr       */
+/*   Updated: 2023/06/30 13:32:41 by smunio           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,7 +53,6 @@ void	main_hook(void *param)
 	if (mlx_is_key_down(game->mlx, MLX_KEY_D)
 		&& check_hitbox(game, x + 2, y) == 0)
 		move(game, 3);
-	ft_score_hook(param);
 }
 
 void	collectibles_hook(void	*param)
@@ -112,6 +111,6 @@ void	move(t_game	*game, int choice)
 		game->p->img->instances[0].y += 2;
 	else if (choice == 3)
 		game->p->img->instances[0].x += 2;
-	game->score++;
-	ft_printf("score -> %d\n", game->score);
+	game->p->score++;
+	ft_printf("Score : %d\n", game->p->score);
 }
