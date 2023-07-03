@@ -6,7 +6,7 @@
 /*   By: smunio <smunio@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/30 12:37:40 by sammeuss          #+#    #+#             */
-/*   Updated: 2023/06/30 13:32:03 by smunio           ###   ########.fr       */
+/*   Updated: 2023/07/03 15:12:03 by smunio           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,10 +55,15 @@ t_collectibles	*init_collectibles(t_game	*g, int i, int u)
 }
 
 void	free_necessary(t_game *game)
-{
-	free(game->map);
-	free(game->e);
-	free(game->p);
+{	
+	if (game->map->array)
+		free_map(game);
+	else if (game->map)
+		free(game->map);
+	if (game->e)
+		free(game->e);
+	if (game->p)
+		free(game->p);
 	if (game->textures)
 		free_textures(game);
 	free(game);

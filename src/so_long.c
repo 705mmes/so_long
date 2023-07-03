@@ -6,7 +6,7 @@
 /*   By: smunio <smunio@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/10 11:59:50 by sammeuss          #+#    #+#             */
-/*   Updated: 2023/06/30 13:35:06 by smunio           ###   ########.fr       */
+/*   Updated: 2023/07/03 15:15:04 by smunio           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,8 @@ int	main(int argc, const char	**argv)
 {
 	t_game	*game;
 
+	if (open(argv[1], O_RDONLY) == -1)
+		return (ft_printf("Error\nFile does not exist\n"));
 	if (argc != 2)
 	{
 		ft_printf("Error\nWrong number of args\n");

@@ -6,7 +6,7 @@
 #    By: smunio <smunio@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/05/03 08:48:44 by sammeuss          #+#    #+#              #
-#    Updated: 2023/06/27 12:36:39 by smunio           ###   ########.fr        #
+#    Updated: 2023/07/03 15:16:54 by smunio           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -75,7 +75,7 @@ clean:
 		@echo "$(PRINT_PREFIX)\033[0;38;5;226m Done \033[0m\n"
 
 fclean: clean
-		@rm -f $(NAME)
+		rm -f $(NAME)
 
 re: fclean all
 
